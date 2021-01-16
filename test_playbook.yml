@@ -1,5 +1,5 @@
 ---
-- name: configure one server as Nginx load balancer
+- name: configure one server as Nginx reverse proxy
   hosts: prox
   remote_user: root
   vars_files: "{{ playbook_dir }}/secrets/conf.yml"
