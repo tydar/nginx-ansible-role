@@ -1,0 +1,14 @@
+server {
+    listen {{ listen_port  }};
+    server_name {{ server_name }};
+{% if root_pass %}
+    location / {
+        proxy_pass {{ root_pass_location }};
+    }
+{% endif %}
+{% for location in locations  %}
+    location {{ location['path'] }} {
+        proxy_pass {{ location['pass_to'] }};
+    }
+{% endfor %}
+}
